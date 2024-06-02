@@ -8,7 +8,7 @@ function App() {
 
   return (
     <div>
-      <p className='bg-red-400'>Welcome to PMS_Calculator</p>
+      <p className='bg-red-400 text-wrap'>Welcome to PMS_Calculator</p>
     </div>
   )
 }
