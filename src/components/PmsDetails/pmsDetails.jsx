@@ -1,4 +1,7 @@
+import { useState } from "react"
 const PmsDetails =()=>{
+
+    const [PmsOpening, setPmsOpening]= useState("")
     return(
         <div className=" m-4">
             <div className="flex align-middle p-1 justify-center mb-2">
