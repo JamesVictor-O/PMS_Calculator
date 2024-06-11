@@ -9,6 +9,10 @@ const PmsDetails =()=>{
     });
 
     const Liters=CalculatePmsLiters(Pms.closingPMS,Pms.openingPMS)
+
+    const totalPrices= Liters * 700
+
+     
      const handleOpeningPmsInput=(event)=>{
         setPms(prevState => ({
             ...prevState,
@@ -56,6 +60,7 @@ const PmsDetails =()=>{
                 <label className="mr-3 w-32">Total Amount :</label>
                 <input 
                  type="number" 
+                 value={totalPrices}
                  className="outline-none border-black border"/>
             </div>
         </div>
