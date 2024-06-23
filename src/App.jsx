@@ -1,4 +1,5 @@
 import PmsDetails from './components/PmsDetails/pmsDetails'
+import CashRemited from './components/SealsCash/cashRemited'
 import './index.css'
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
       <div className='item-center justify-center flex border-b-2 mt-7 text-2xl border-black pb-3'>PMS Calculator</div>
        <div>
            <PmsDetails></PmsDetails>
+           <CashRemited/>
        </div>
     </div>
   )

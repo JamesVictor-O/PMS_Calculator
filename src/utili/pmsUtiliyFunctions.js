@@ -11,3 +11,12 @@ export const CalculatePmsLiters=(closingPms,openingPms)=>{
        }
     
 }
+
+export const formatToCurrency=(amount)=>{
+    const formater= new Intl.NumberFormat(`en-NG`,{
+      style: 'currency',
+      currency: "NGN"
+    });
+
+    return formater.format(amount)
+}

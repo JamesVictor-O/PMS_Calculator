@@ -1,5 +1,7 @@
 import { useState } from "react"
-import { CalculatePmsLiters } from "../../utili/pmsUtiliyFunctions";
+
+// imported utility function
+import { CalculatePmsLiters, formatToCurrency } from "../../utili/pmsUtiliyFunctions";
 
 const PmsDetails =()=>{
 
@@ -11,6 +13,8 @@ const PmsDetails =()=>{
     const Liters=CalculatePmsLiters(Pms.closingPMS,Pms.openingPMS)
 
     const totalPrices= Liters * 700
+
+    const priceInNaira=formatToCurrency(totalPrices)
 
      
      const handleOpeningPmsInput=(event)=>{
@@ -33,7 +37,7 @@ const PmsDetails =()=>{
                 <input 
                   type="number" 
                   value={Pms.openingPMS} 
-                  className="outline-none border-black border pl-1 justify-end" 
+                  className="outline-none border-black border p-1 h-7" 
                   onChange={handleOpeningPmsInput}
                 />
             </div>
@@ -43,7 +47,7 @@ const PmsDetails =()=>{
                 <input 
                  value={Pms.closingPMS} 
                  type="number" 
-                 className="outline-none border-black border"
+                 className="outline-none border-black pl-1 border h-7"
                  onChange={handleClosingPmsInput}
                  />
             </div>
@@ -53,15 +57,15 @@ const PmsDetails =()=>{
                 <input 
                 type="number" 
                 value={Liters}
-                className="outline-none border-black border justify-end"/>
+                className="outline-none border-black border pl-1 justify-end h-7"/>
             </div>
             
             <div className="flex align-middle p-1 justify-center mb-2">
                 <label className="mr-3 w-32">Total Amount :</label>
                 <input 
                  type="number" 
-                 value={totalPrices}
-                 className="outline-none border-black border"/>
+                 value={priceInNaira}
+                 className="outline-none border-black pl-1 border h-7"/>
             </div>
         </div>
     )
