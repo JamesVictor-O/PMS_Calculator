@@ -55,7 +55,7 @@ const PmsDetails =()=>{
                 </div> 
             </form>
 
-             <div className="w-[60%] ml-12 flex flex-col justify-start items-baseline">
+             <div className=" m-4 flex flex-col items-start md:items-center">
                 <div className="flex align-middle p-1 justify-center mb-2">
                     <label className=" w-32">Pms Liters :</label>
                     <div>
