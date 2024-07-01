@@ -16,7 +16,7 @@ const TotalPOS=()=> {
       <label>Total POS  <span>:</span></label>
       <textarea 
       className={`border border-black click:bg-red-400 outline-none ml-1 pl-1 text-red-500
-        ${isFocused ? "absolute w-[95%] h-full top-0 left-0" : "relative"}`
+        ${isFocused ? "absolute w-[95%] h-full top-0 left-0 p-3" : "relative"}`
         }
       onClick={handleOnHover}
       onChange={handleOnChange}

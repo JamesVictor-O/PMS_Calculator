@@ -1,18 +1,23 @@
-import { useState,useEffect } from "react"
-
+import { useState,useEffect, useContext } from "react"
+import { v4 as uuidv4 } from "uuid"
+import { TotalAmountContext } from "../../contextApis/TotalContextApi"
 const CashRemited =()=>{
-    const [cashAdded, setCashAdded]=useState([])
+    
     const [cashInput, setCashInput]=useState("")
+    const {cashAdded,setCashAdded, totalAmounts}=useContext(TotalAmountContext)
 
     const handleCashAdding=()=>{
-        setCashAdded([
-            ...cashAdded,
-            {
-                id:cashAdded.length +1,
-                label:`Cash ${cashAdded.length +1}`,
-                amount:cashInput
-            }
-        ])
+        if(cashInput != ""){
+            setCashAdded([
+                ...cashAdded,
+                {
+                    id:uuidv4(),
+                    label:`Cash ${cashAdded.length +1}`,
+                    amount:cashInput
+                }
+            ])
+        }
+        
 
        setCashInput("")
 
@@ -30,15 +35,6 @@ const CashRemited =()=>{
     const handleCashInput=(e)=>{
         setCashInput(e.target.value)
     }
-// to calculate the total cash remitted
-    // useEffect(() =>{
-    //     const newArray=cashAdded.map(items=>{
-    //         return items.amount
-    //     })
-    //     console.log(newArray.map(Number).reduce((acc,curr,)=>{
-    //         return acc + curr
-    //     },0))
-    // }, [cashAdded])
 
     return(
         <div className=" border border-black m-2 p-1 w-[80%] md:w-[50%]">
@@ -53,7 +49,10 @@ const CashRemited =()=>{
                         onChange={handleCashInput}
                      />
                 </div>
-                <button className="bg-red-200 border p-1 text-[13px] rounded border-black  hover:bg-red-300" onClick={handleCashAdding}>
+                <button 
+                    className="bg-red-200 border p-1 text-[13px] rounded border-black  hover:bg-red-300" 
+                    onClick={handleCashAdding}
+                >
                     AddCash
                 </button>
             </div>
