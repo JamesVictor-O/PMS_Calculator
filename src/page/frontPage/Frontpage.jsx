@@ -3,6 +3,7 @@ import PmsDetails from '../../components/PmsDetails/pmsDetails'
 import TotalPOS from '../../components/totalPOS/totalPOS'
 import CashRemited from '../../components/SealsCash/cashRemited'
 import TotalContextApi from '../../contextApis/TotalContextApi'
+import inputPage from '../../components/inputPage'
 
 const FrontPage = () => {
   return (
@@ -12,11 +13,13 @@ const FrontPage = () => {
         <h2 className='text-white mt-5'>PMS Calculator</h2>
       </div>
        <div>
+          
            <PmsDetails/>
            <TotalContextApi>
               <TotalPOS/>
               <CashRemited/>
            </TotalContextApi>
+          
 
            <div className='flex justify-center align-middle mt-4'>
              <button className='border border-black text-[14px] p-1 rounded-sm bg-red-200 hover:bg-red-300'>Work Account</button>
