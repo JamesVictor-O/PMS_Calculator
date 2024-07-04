@@ -1,12 +1,16 @@
-import { useState } from "react"
-
+import { useContext, useEffect, useState } from "react"
+import { TotalAmountContext } from "../../contextApis/TotalContextApi";
 // imported utility function
 import { CalculatePmsLiters, formatToCurrency } from "../../utili/pmsUtiliyFunctions";
 
 const PmsDetails =()=>{
+
+    const {totalProductSold, setTotalProductSold, totalAmounts}=useContext(TotalAmountContext)
+
+    console.log(totalAmounts)
     const [Pms, setPms]= useState({
-        openingPMS: "",
-        closingPMS:"",
+        openingPMS: "592335.450",
+        closingPMS:"595240.930",
         pricePerLiter:600
     });
 
@@ -14,8 +18,9 @@ const PmsDetails =()=>{
 
     const totalPrices= Liters * Pms.pricePerLiter
 
-    const priceInNaira=formatToCurrency(totalPrices)
-
+   useEffect(()=>{
+    setTotalProductSold(formatToCurrency(totalPrices))
+   },[totalPrices])
      
      const handleOpeningPmsInput=(event)=>{
         setPms(prevState => ({
@@ -73,12 +78,20 @@ const PmsDetails =()=>{
           <div className="flex justify-between align-middle items-center">
               <label className="flex-1 mr-[10px] text-red-900 text-left md:text-right text-[18px] md:text-[20px]" >Total Liters</label>
               <span className="text-[40px] mr-[20px] md:text-[25px]">:</span>
-              <input className="flex-1 p-[5px] outline-none h-6 md:h-7 appearance-none" type="number" value={totalPrices} />
+              <input className="flex-1 p-[5px] outline-none h-6 md:h-7 appearance-none" 
+              type="number" 
+              value={Liters} 
+              readOnly
+              />
           </div>
           <div className="flex justify-between align-middle items-center">
               <label  className="flex-1 mr-[10px] text-red-900 text-left md:text-right text-[18px] md:text-[20px]">Amount</label>
               <span className="text-[40px] mr-[20px] md:text-[25px]">:</span>
-              <input className="flex-1 p-[5px] outline-none h-6 md:h-7 appearance-none" type="text" value={priceInNaira}/>
+              <input className="flex-1 p-[5px] outline-none h-6 md:h-7 appearance-none"
+               type="text"
+               value={totalProductSold}
+               readOnly
+               />
           </div>
           
       </div>
